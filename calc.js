@@ -107,13 +107,15 @@ c.addEventListener('click', function () {
 });
 
 bksp.addEventListener('click', function () {
-    //remove last sign
+    let tmp = disp.value;
+    tmp = tmp.substring(0, tmp.length-1);
+    disp.value = tmp;
 });
 
 plusmin.addEventListener('click', function () {
     if (disp.value.length > 0) {
         let tmp = disp.value;
-        
+
         if (!isMin) {
             tmp = "-" + tmp;
         } 

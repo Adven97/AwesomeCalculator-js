@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Pacifico');
+
 body{
     background-color: #1da1f2; 
 }
@@ -8,6 +10,8 @@ body{
 h1{
     margin-top: 15px;
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 25px;
 }
 
 .inp{
@@ -17,7 +21,7 @@ h1{
     border-radius: 25px;
     border: 2px solid;
     border-color: #0b0e0d; 
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Orbitron', sans-serif;
     font-size: 26px;
 }
 
@@ -35,8 +39,10 @@ button{
     border-radius: 10px;
     width:24%;
     background-color: rgb(92, 88, 88); 
+    font-size: 32px;
+    font-family: 'Orbitron', sans-serif;
 }
 
-button:HOVER {
-    background-color: rgb(47, 45, 45);
+button:hover {
+    background-color: rgb(75, 72, 72);
 }
