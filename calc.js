@@ -2,6 +2,8 @@ const disp = document.querySelector('.inp');
 let listOfSigns = [];
 let listOfNums = [];
 
+let listOfNumButtons = []
+
 let isDot = false;
 let isMin = false;
 
@@ -32,21 +34,27 @@ function performCalc() {
                 }
         }
     }
-    return licz;
+    return licz.toFixed(4);
 }
 
-// digit buttons
-const zero = document.querySelector('#sig0');
-const one = document.querySelector('#sig1');
-const two = document.querySelector('#sig2');
-const three = document.querySelector('#sig3');
-const four = document.querySelector('#sig4');
-const five = document.querySelector('#sig5');
-const six = document.querySelector('#sig6');
-const seven = document.querySelector('#sig7');
-const eight = document.querySelector('#sig8');
-const nine = document.querySelector('#sig9');
+listOfNumButtons.push(document.querySelector('#sig0'));
+listOfNumButtons.push(document.querySelector('#sig1'));
+listOfNumButtons.push(document.querySelector('#sig2'));
+listOfNumButtons.push(document.querySelector('#sig3'));
+listOfNumButtons.push(document.querySelector('#sig4'));
+listOfNumButtons.push(document.querySelector('#sig5'));
+listOfNumButtons.push(document.querySelector('#sig6'));
+listOfNumButtons.push(document.querySelector('#sig7'));
+listOfNumButtons.push(document.querySelector('#sig8'));
+listOfNumButtons.push(document.querySelector('#sig9'));
 
+function appendNumber(num) {
+    disp.value += num;
+}
+
+listOfNumButtons.forEach(butt => butt.addEventListener('click', () => {
+    appendNumber(butt.textContent)
+}))
 
 // other buttons
 const plus = document.querySelector('#plus');
@@ -60,45 +68,6 @@ const c = document.querySelector('#c');
 const plusmin = document.querySelector('#plusmin');
 const bksp = document.querySelector('#bksp');
 
-zero.addEventListener('click', function () {
-    disp.value += '0';
-});
-
-one.addEventListener('click', function () {
-    disp.value += '1';
-});
-
-two.addEventListener('click', function () {
-    disp.value += '2';
-});
-
-three.addEventListener('click', function () {
-    disp.value += '3';
-});
-
-four.addEventListener('click', function () {
-    disp.value += '4';
-});
-
-five.addEventListener('click', function () {
-    disp.value += '5';
-});
-
-six.addEventListener('click', function () {
-    disp.value += '6';
-});
-
-seven.addEventListener('click', function () {
-    disp.value += '7';
-});
-
-eight.addEventListener('click', function () {
-    disp.value += '8';
-});
-
-nine.addEventListener('click', function () {
-    disp.value += '9';
-});
 
 /////////////////////////////////////////////////////// action buttons
 
@@ -108,7 +77,7 @@ c.addEventListener('click', function () {
 
 bksp.addEventListener('click', function () {
     let tmp = disp.value;
-    tmp = tmp.substring(0, tmp.length-1);
+    tmp = tmp.substring(0, tmp.length - 1);
     disp.value = tmp;
 });
 
@@ -118,8 +87,7 @@ plusmin.addEventListener('click', function () {
 
         if (!isMin) {
             tmp = "-" + tmp;
-        } 
-        else {
+        } else {
             tmp = tmp.substring(1, tmp.length);
         }
 
